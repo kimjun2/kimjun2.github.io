@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>2013726063</title>
+
+<style type="text/css">
+body{
+display:inline
+width:500px; height:890px; background:gray;
+text-align: center;
+}
+#lay{ width:70%;background-color:black; padding : 20px; 
+border-collapse:separate; border-spacing:5px;}
+#menubar{width:70%; background-color:#29CCAF;}
+#framer{visibility:hidden;}
+.timestone{background-color:#009999; color:white; font:15px bold;width:30px;height:20px;}
+.era{background-color:white;color:#009999;font-size:10px;width:80px;height:20px;padding:0px;font-weight:bold;border-radius:5px;}
+.ta{
+font-size:30px;
+float:left;
+width:69.5%;
+border : 0px;
+background-color:lightgray;
+text-align:right;
+margin:0;
+}
+
+.crr{
+	text-align:center;
+	width:30px; height :30px;
+	background : url("sources/crys.png") center no-repeat;
+	font-weight:bold;
+	border-radius:5px;
+
+	}
+.yrr{
+text-align:center;
+	width:30px; height :50px;
+	background : url("sources/Ycrys.png") center no-repeat;
+	font-weight:bold;
+	border-radius:5px;
+
+}
+.grr{
+text-align:center;
+	width:30px; height :50px;
+	background : url("sources/Gcrys.png") center no-repeat;
+	font-weight:bold;
+
+}
+.Rrr{
+text-align:center;
+	width:30px; height :50px;
+	background : url("sources/Gcrys.png") center no-repeat;
+	font-weight:bold;
+
+}
+.nrr{width:30px;height:50px;}
+.BCrys{width:100%; background: url(sources/crys.png) no-repeat center;
+font-size:25px; height:80px;
+}
+.Ycrys{width:100%; background: url(sources/Ycrys.png) no-repeat center;
+font-size:25px; height:80px;
+}
+.normbutton{
+width:35px; height:35px; padding:8px;
+align-items:center;
+background-color:gray; 
+color:white;
+vertical-align:middle;
+font:20px sans-serif;
+font-weight:bold;
+border-radius:5px;
+}
+.operator{ background-color : orange;
+width:35px; height:35px; margin:30px; padding:8px;
+align-items:center;
+vertical-align:middle;
+font:14px sans-serif;
+color :white;
+font-weight:bold;
+border-radius:5px;}
+.actor{background-color : red;
+width:35px; height:35px; margin:30px; padding:8px;
+align-items:center;
+vertical-align:middle;
+font:14px sans-serif;
+color :white;
+font-weight:bold;
+border-radius:5px;
+}
+.resultbt{background-color : #6799FF;
+width:35px; height:35px; margin:30px; padding:8px;
+align-items:center;
+vertical-align:middle;
+font:14px sans-serif;
+color :white;
+font-weight:bold;
+border-radius:5px;
+}
+.non{
+background-color : black;
+width:35px; height:35px; margin:30px; padding:8px;
+align-items:center;
+vertical-align:middle;
+font:14px sans-serif;
+color :black;
+font-weight:bold;
+border-radius:5px;
+}
+.lightkey{
+background-color : lightgray;
+width:35px; height:35px; margin:30px; padding:8px;
+align-items:center;
+vertical-align:middle;
+font:14px sans-serif;
+color :black;
+font-weight:bold;
+border-radius:5px;
+}
+.framedeco{
+background-color: gray;
+border : 0px;
+width:29%;
+float:right;
+height:68.3%;
+}
+#grap{position:absolute;top:20px;}
+.rv1{}
+.rv2{}
+.rv3{}
+.rv4{}
+.rv5{}
+.r1{}
+.r2{}
+.r3{}
+.r4{}
+.r5{}
+.des1{}
+.f0{}
+.f1{}
+.f2{}
+.f3{}
+.f4{}
+.f5{}
+.f6{}
+.key:active {
+            background-color: #a1a1a1;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+}
+.keys:active {
+            background-color: #a1a1a1;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+}
+a:link{
+color:black;
+text-decoration:none;
+}
+a:visited{
+color:black;
+text-decoration:none;
+}
+a:hover{
+color:black;
+text-decoration:none;
+}
+
+</style>
+
+ <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' type='text/javascript'></script>
+    <script src='sources/math.js' type='text/javascript'></script>
+
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>  
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          "HTML-CSS": { scale: 75}
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+			var fnum;
+			var diff;
+			var ing=0;
+			var fng=0;
+			var opng=0;
+			var i=0;
+			var activate=0;
+			var gflag=0;
+			var func1=new Array("sin","cos","tan","exp","log","sqrt","삼각함수");
+			var func2=new Array("==", "!=","<=","<",">=",">","비교연산");
+			var func3=new Array("cross", "dot", "DEL","i","det","inv","행렬/벡터");
+			var func4=new Array("pi", "e", "00", "상수 ", "", "","");
+			var track1=new Array(" ", " "," "," "," ");
+			var t2=new Array(" ", " "," "," "," ");
+			var sa=new Array(" "," "," "," "," ");
+			var reco=new Array(" "," "," "," "," ");
+			var recnt=0;
+            var parser = math.parser();
+            var displayValue = '';
+			var fuing=0;
+
+            $('#ta1').text(displayValue);
+            $('#latex').html('$$' + math.parse(displayValue).toTex() + '$$');
+            $('.key').each(function(index, key){   
+				
+                $(this).click(function(e){
+                    if(displayValue == '0') displayValue = '';
+					
+					fnum=$('#ta1').text();
+					var count=0;
+					for(var j=0; j<fnum.length;j++){
+					count++;
+					}
+					
+                    if($(this).text() == '결과')
+                    {
+                        try
+                        {
+                            displayValue = parser.eval(displayValue).toString();
+                            var tokens = displayValue.split(' ');
+                            if(tokens[0] == 'function')
+                            {
+                                displayValue = tokens[0];
+                            }
+                            $('#ta2').text(displayValue);
+								for(i=4;i>0;i--){
+								track1[i]=track1[i-1];
+								t2[i]=t2[i-1];
+								}
+								track1[0]=displayValue;
+								t2[0]= $('#ta1').text();
+								if(track1[0]!=" "){
+								$('.r1').text(track1[0]);
+								$('.rv1').text(t2[0]);
+								}
+								if(track1[1]!=" "){
+								$('.r2').text(track1[1]);
+								$('.rv2').text(t2[1]);
+								}
+								if(track1[2]!=" "){
+								$('.r3').text(track1[2]);
+								$('.rv3').text(t2[2]);
+								}
+								if(track1[3]!=" "){
+								$('.r4').text(track1[3]);
+								$('.rv4').text(t2[3]);
+								}
+								if(track1[4]!=" "){
+								$('.r5').text(track1[4]);
+								$('.rv5').text(t2[4]);
+								}
+								
+								if(ing==1&&opng==0){
+								$('.des1').text(displayValue);
+								track1[0]='x';
+								$('.r1').text(track1[0]);
+								ing=0;
+								opng=0;
+								}
+								else if(ing==2&&opng==0){
+								$('.des2').text(displayValue);
+								track1[0]='y';
+								$('.r1').text(track1[0]);
+								ing=0;
+								}
+								else if(ing==3&&opng==0){
+								$('.des3').text(displayValue);
+								track1[0]='z';
+								$('.r1').text(track1[0]);
+								ing=0;
+								}
+								else if(ing==-1){
+								if(fng==1){
+								displayValue = $('#ta1').text();
+								$('.ham1').text(displayValue);
+								}
+								else if(fng==2){
+								displayValue = $('#ta1').text();
+								$('.ham2').text(displayValue);
+								}
+								ing=0;
+								fng=0;
+								opng=0;
+								}
+                            displayValue = '0';
+                        }
+                        catch (e)
+                        {
+                            displayValue = '0';
+                            if(displayValue != 'function')
+                            {
+                                $('#ta2').text(e);
+                            }
+                        }               
+                    }
+                    else
+                    {
+                        if($(this).text() == 'C')
+                        {
+                            displayValue = '0';
+                            $('#ta1').text(displayValue);
+							$('#ta2').text(displayValue);
+							ing=0;
+							fng=0;
+							opng=0;
+                        }
+						else if($(this).text() == 'GRAPH'){
+						$('#mainer').hide();
+						$('#framer').css("visibility","visible");
+						$('#gri').html("CALC").css("background","#009999");
+						
+						}
+						else if($(this).text() == 'CALC'){
+						$('#mainer').show();
+						$('#framer').css("visibility","hidden");
+						$('#gri').html("GRAPH").css("background","coral");
+						}
+						else if($(this).text() == 'x'){
+						displayValue += $(this).text();
+						$('#ta1').text(displayValue);
+						if(ing==0)ing=1;
+						else if(ing!=0)ing=-1;
+						}
+						else if($(this).text() == 'y'){
+						displayValue += $(this).text();
+						$('#ta1').text(displayValue);
+						if(ing==0)ing=2;
+						else if(ing!=0)ing=-1;
+						}
+						else if($(this).text() == 'z'){
+						displayValue += $(this).text();
+						$('#ta1').text(displayValue);
+						if(ing==0)ing=3;
+						else if(ing!=0)ing=-1;
+						}
+						else if($(this).text() == 'f'){
+						displayValue += $(this).text();
+						$('#ta1').text(displayValue);
+						if(fng==0)fng=1;
+						}
+						else if($(this).text() == 'g'){
+						displayValue += $(this).text();
+						$('#ta1').text(displayValue);
+						if(fng==0)fng=2;
+						}
+						else if($(this).text() == '+'||$(this).text() == '-'
+						||$(this).text() == '*'||$(this).text() == '/'||$(this).text() == '^'||$(this).text() == '%'){
+							opng=100;
+							displayValue += $(this).text();
+                            $('#ta1').text(displayValue);
+						}
+					
+						else if($(this).text() =='공학용'){
+							$(".key").filter(".f1").html("").removeClass('yrr crr').addClass('nrr');
+							$(".key").filter(".f2").html('삼각함수').removeClass('crr').addClass('yrr');
+							$(".key").filter(".f3").html('비교연산').removeClass('crr').addClass('yrr');
+							$(".key").filter(".f4").html('행렬/벡터').removeClass('crr').addClass('yrr');
+							$(".key").filter(".f5").html('상수').removeClass('crr').addClass('yrr');
+							$(".key").filter(".f6").html("").removeClass('yrr crr').addClass('nrr');
+							$(".keys").filter(".f0").html("").removeClass('yrr crr').addClass('nrr');
+						}
+						else if($(this).text() =='삼각함수'){
+							$(".key").filter(".f1").html(func1[0]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f2").html(func1[1]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f3").html(func1[2]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f4").html(func1[3]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f5").html(func1[4]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f6").html(func1[5]).removeClass('yrr').addClass('crr');
+							$(".keys").filter(".f0").html(func1[6]).removeClass('nrr crr').addClass('yrr');
+						}
+						else if($(this).text() =='비교연산'){
+							$(".key").filter(".f1").html(func2[0]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f2").html(func2[1]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f3").html(func2[2]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f4").html(func2[3]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f5").html(func2[4]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f6").html(func2[5]).removeClass('yrr').addClass('crr');
+							$(".keys").filter(".f0").html(func2[6]).removeClass('nrr crr').addClass('yrr');
+						}
+						else if($(this).text() =='행렬/벡터'){
+							$(".key").filter(".f1").html(func3[0]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f2").html(func3[1]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f3").html(func3[2]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f4").html(func3[3]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f5").html(func3[4]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f6").html(func3[5]).removeClass('yrr').addClass('crr');
+							$(".keys").filter(".f0").html(func3[6]).removeClass('nrr crr').addClass('yrr');
+							}
+						
+						else if($(this).text() =='상수'){
+						$(".key").filter(".f1").html("").removeClass('yrr crr').addClass('nrr');
+							$(".key").filter(".f2").html("").removeClass(' crr yrr').addClass('nrr');
+							$(".key").filter(".f3").html(func4[0]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f4").html(func4[1]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f5").html(func4[2]).removeClass('yrr').addClass('crr');
+							$(".key").filter(".f6").html("").removeClass(' crr yrr').addClass('nrr');
+							$(".keys").filter(".f0").html(func4[3]).removeClass('nrr crr').addClass('yrr');
+						}
+						else if($(this).text() =='←'){
+						var reval=displayValue;
+						reco[recnt]=reval;
+						displayValue=displayValue.substring(0,displayValue.length-sa[0]);
+						$('#ta1').text(displayValue);
+						for(i=0;i<4;i++){
+						sa[i]=sa[i+1];
+							}
+							fuing=1;
+							recnt++;
+						}
+						else if($(this).text() =='→'){
+						if(recnt>0){
+						displayValue=reco[recnt-1];
+						$('#ta1').text(displayValue);
+						recnt--;
+						fuing=1;
+						}
+						}
+						else if($(this).text() =='지우기'){
+						displayValue=displayValue.substring(0,displayValue.length-1);
+						$('#ta1').text(displayValue);
+						}
+						else if($(this).text() == '('||$(this).text() == ')'
+						||$(this).text() == '{'||$(this).text() == '}'||$(this).text() == '.'||$(this).text() == ','){
+						displayValue += $(this).text();
+                            $('#ta1').text(displayValue);
+						$(".key").filter("#option1").html('*').css("background", "orange");
+						$(".key").filter("#option2").html('/').css("background", "orange");
+						$(".key").filter("#option3").html('^').css("background", "orange");
+						$(".key").filter("#option4").html('%').css("background", "orange");
+						$(".key").filter("#b1").html('+').css("background", "orange");
+						$(".key").filter("#b2").html('-').css("background", "orange");
+						$(".key").filter("#b3").html(',').css("background", "lightgray");
+						$(".key").filter("#b4").html(';').css("background", "lightgray");
+						$(".key").filter(".gal1").css("background", "lightgray");
+						activate=0;
+						
+						}
+						else if($(this).text() =='괄호'){
+						if(activate==0){
+						$(".key").filter(".gal1").css("background", "orange");
+						$(".key").filter("#option1").html('(').css("background", "orange");
+						$(".key").filter("#option2").html(')').css("background", "orange");
+						$(".key").filter("#option3").html('[').css("background", "orange");
+						$(".key").filter("#option4").html(']').css("background", "orange");
+						$(".key").filter("#b1").html(' ').css("background", "black");
+						$(".key").filter("#b2").html(' ').css("background", "black");
+						$(".key").filter("#b3").html(' ').css("background", "black");
+						$(".key").filter("#b4").html(' ').css("background", "black");
+						activate=1;
+						}
+						else if(activate==1){
+						$(".key").filter(".gal1").css("background", "lightgray");
+						$(".key").filter("#option1").html('*').css("background", "orange");
+						$(".key").filter("#option2").html('/').css("background", "orange");
+						$(".key").filter("#option3").html('^').css("background", "orange");
+						$(".key").filter("#option4").html('%').css("background", "orange");
+						$(".key").filter("#b1").html('+').css("background", "orange");
+						$(".key").filter("#b2").html('-').css("background", "orange");
+						$(".key").filter("#b3").html(',').css("background", "lightgray");
+						$(".key").filter("#b4").html(';').css("background", "lightgray");
+						activate=0;
+						}
+						}
+                        else
+                        {                        
+                            displayValue += $(this).text();
+                            $('#ta1').text(displayValue);
+                        }
+						
+					
+						fnum=$('#ta1').text();
+						var count2=0;
+						for(var j=0; j<fnum.length;j++){
+						count2++;}
+						diff=count2-count;
+						if(diff>0&&fuing==0){
+						for(i=0;i<4;i++){
+						sa[i+1]=sa[i];
+						}
+						sa[0]=diff;
+					}
+					fuing=0;
+                        var node = math.parse(displayValue);
+                        var latex = node.toTex({parenthesis: 'keep', implicit: 'hide'});
+                        var elem = MathJax.Hub.getAllJax('latex')[0];
+                        MathJax.Hub.Queue(['Text', elem, latex]);                      
+                    }
+
+                    e.preventDefault()
+                })
+            })
+        })
+	
+	
+    </script>
+	
+</head>
+<body >
+
+<table class=framedeco>
+<tr><td  id=gri style="height:10%; font-size:30px;background-color:coral;color : white;" class="key">GRAPH</td></tr>
+<tr>
+		<td  colspan=2 class="nrr f0 keys" ></td>
+	</tr>
+<tr>
+
+		<td  colspan=2 class="nrr f1 key" ></td>
+	</tr>
+	<tr>
+		<td  colspan=2 class="nrr f2 key" ></td>
+
+	</tr>
+	<tr>
+		<td  colspan=2 class="nrr f3 key" ></td>
+
+	</tr>
+	<tr>
+		<td  colspan=2 class="nrr f4 key"></td>
+	</tr>
+	<tr>
+		<td  colspan=2 class="nrr f5 key" ></td>
+	</tr>
+	<tr>
+		<td  colspan=2 class="nrr f6 key" ></td>
+	</tr>
+		</table>
+<header id="mainer">
+<table id=menubar><tr ><td id=t1 class="timestone key"><xmp>←</xmp></td><td id=t2 class="timestone key"><xmp>→</xmp></td>
+<td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td class="era key"colspan=1 >지우기</td>
+</tr></table>
+<textarea id=ta1 name=plz class=ta cols=20 rows=5></textarea>
+<hr style="width:70%; margin:0; height:10px; background-color:gray;border : 0px"></hr>
+<textarea id=ta2 class=ta cols=10 rows=2></textarea>
+<table id=lay>
+<tr>
+<td class="normbutton key">1</th><th class="normbutton key">2</td><th class="normbutton key">3</th>
+<th class="non">nn</th>
+<th class="actor key" colspan=1>C</th><th class="lightkey key">=</th>
+<th class=non>nn</th>
+<th id=b1 class="operator key ">+</th><th id=b2 class="operator key ">-</th>
+</tr>
+<tr>
+<th class="normbutton key ">4</th><th class="normbutton key">5</th><th class="normbutton key">6</th>
+<td class=non>nn</td><th class="lightkey key gal1" colspan=2>괄호</th>
+<th class=non>nn </th>
+<th id=option1 class="operator key">*</th><th id=option2 class="operator key">/</th>
+</tr>
+<tr>
+<th class="normbutton key">7</th><th class="normbutton key">8</th><th class="normbutton key">9</th>
+<th class=non>nn </th><th class="yrr key" style="border-radius:5px;" colspan=2>공학용</th>
+<th class="non ">nn</th>
+<th id=option3 class="operator key">^</th><th id=option4 class="operator key">%</th>
+</tr>
+<tr><td colspan=2 class="normbutton key" >0</td><th  class="normbutton key">.</th>
+<th class=non>nn </th><td class="resultbt key" colspan=2>결과</td><th class=non>nn </th>
+<th id=b3 class="lightkey key">,</th><th id=b4 class="lightkey key">;</th><tr>
+</table>
+<table style ="width:70%;margin-top:50px;">
+<tr><td colspan=1 style="text-align:center; background-color:#CCaF22; width:15%;">변수</td>
+<td style="background-color:yellow;"colspan=2>값</td>
+<td colspan=1 style="text-align:center; background-color:#CCaF22;width:15%;">함수</td>
+<td style="background-color:yellow;" colspan=2>값</td></tr>
+<tr>
+<td class="key "style ="background:silver;"colspan=1>x</td>
+<td id="xcontext" class="des des1" colspan=2 style=" background-color : lightgray;"> </td>
+<td class="key "style ="background:silver;"colspan=1>f</td>
+<td id="xcontext" class="ham1" colspan=2 style=" background-color : lightgray;"> </td>
+</tr>
+<tr>
+<td class="key "style ="background:silver;"colspan=1>y</td>
+<td id="xcontext" class=des2  style=" background-color : lightgray;"colspan=2> </td>
+<td class="key "style ="background:silver;"colspan=1>g</td>
+<td id="xcontext" class="ham2" colspan=2 style=" background-color : lightgray;"> </td>
+</tr>
+<tr>
+<td class="key "style ="background:silver;"colspan=1>z</td>
+<td id="xcontext" class=des3 colspan=2 style=" background-color : lightgray;"> </td>
+</tr></table>
+<table style="width:100%; margin-top:10px;"><tr><td class="r1 key" style="background-color:violet; color:white;width:10%">
+row1
+</td>
+<td class="rv1" style="width:90%;background-color:lightgray;"> </td>
+<tr><td class="r2 key" style="background-color:violet; color:white;width:10%">
+row2
+</td>
+<td class="rv2" style="width:90%;background-color:lightgray;"> </td>
+<tr><td class="r3 key" style="background-color:violet; color:white;width:10%">
+row3
+</td>
+<td class="rv3" style="width:90%;background-color:lightgray;"> </td>
+<tr><td class="r4 key" style="background-color:violet; color:white;width:10%">
+row4
+</td>
+<td class="rv4" style="width:90%;background-color:lightgray;"> </td>
+<tr><td class="r5 key" style="background-color:violet; color:white;width:10%">
+row5
+</td>
+<td class="rv5" style="width:90%;background-color:lightgray;"> 
+</tr></table>
+<div id="latex" style="color:gray"></div>
+</header>
+
+<iframe id=framer style=" width:70%; height:70%; border:0px; " src="sources/graph.html" scrolling=no>
+
+</body>
+</html>
