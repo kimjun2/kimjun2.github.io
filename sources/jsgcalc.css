@@ -59,7 +59,7 @@ textarea:focus { border: 1px solid #56ADFF;}
 
 a { text-decoration: none;}
 a:hover { text-decoration: underline;}
-#buttonbar{height:30px; margin-left:10px;margin-top:400px;}
+#buttonbar{height:30px; margin-left:10px;margin-top:600px;}
 .fancybutton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
