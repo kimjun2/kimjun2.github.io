@@ -42,7 +42,7 @@ border-radius:5px;
 #settings_button {padding: 10px 6px; height: 20px; vertical-align: bottom; background:orange;}
 #settings { display: none; margin-bottom: 20px; margin-left:20px;margin-top:20px;}
 
-#graph_wrapper { position: absolute; top: 20px; left: 10px; height: 30%; width: 30%; z-index: 2; margin-right: 250px;}
+#graph_wrapper { position: absolute; top: 20px; left: 10px; height: 50%; width: 70%; z-index: 2; margin-right: 250px;}
 #graph_wrapper:hover { cursor: crosshair;}
 #graph_wrapper:active { cursor: move;}
 #graph { width: 100%; height: 100%; border: 2px solid coral;}
